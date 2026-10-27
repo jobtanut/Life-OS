@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Life OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // Apply saved theme before first paint (no flash)
+    try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}
+  </script>
+</head>
+<body>
+  <header class="top">
+    <button class="brand" data-page="home" title="Home">Life<span>OS</span></button>
+    <nav class="menu">
+      <button data-page="home" class="active">Home</button>
+      <button data-page="pulse">Pulse</button>
+    </nav>
+    <div id="greeting" class="greeting"></div>
+    <span class="spacer"></span>
+    <div id="status" class="status"></div>
+    <button id="syncBtn" class="iconbtn" title="Sync Todoist + Google Calendar">⟳</button>
+    <div class="settings">
+      <button id="settingsBtn" class="iconbtn" title="Settings" aria-haspopup="true" aria-expanded="false">⚙</button>
+      <div id="settingsMenu" class="dropdown" hidden>
+        <div class="dd-label">Appearance</div>
+        <div class="seg" id="themeSeg">
+          <button data-theme="system">◐ System</button>
+          <button data-theme="light">☀︎ Light</button>
+          <button data-theme="dark">☾ Dark</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <section class="panel" id="tasksPanel"></section>
+    <section class="panel center" id="calPanel"></section>
+    <section class="panel" id="sidePanel"></section>
+  </div>
+
+  <!-- Pulse: daily check-in + log, kept off the home page -->
+  <div class="pulse" id="pulsePage" hidden></div>
+
+  <!-- Coach popup -->
+  <button id="coachFab" class="fab" title="Coach">✦</button>
+  <div id="coachBox" class="coachbox" hidden>
+    <div class="coachhead">
+      <div><b>Coach</b><small id="coachSub"></small></div>
+      <button class="ghost" id="coachClose" title="Close">✕</button>
+    </div>
+    <div class="msgs" id="msgs"></div>
+    <div class="quick" id="quick"></div>
+    <form class="composer" id="composer"><textarea name="m" placeholder="Message your coach… (Enter to send)"></textarea><button class="primary">↑</button></form>
+  </div>
+
+  <!-- Modal (notes editor, full log) -->
+  <div id="modal" class="modal" hidden><div class="modalcard" id="modalCard"></div></div>
+
+  <!-- Shown after completing a task: compliment + what you could get ahead on -->
+  <div id="cheer" class="cheer" hidden></div>
+
+  <div id="toast"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "life-os",
+  "version": "0.1.0",
+  "description": "Tasks, calendar, notes and a daily journal on one page, with an AI coach that acts. Local, free, zero dependencies.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "engines": {
+    "node": ">=22.9"
+  }
+}
