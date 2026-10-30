@@ -18,13 +18,14 @@ const COLLECTIONS = {
   events: { add: ops.addEvent, update: ops.updateEvent, remove: ops.deleteEvent },
   notes: { add: ops.addNote, update: ops.updateNote, remove: ops.deleteNote },
   stickies: { add: ops.addSticky, update: ops.updateSticky, remove: ops.deleteSticky },
+  goals: { add: ops.addGoal, update: ops.updateGoal, remove: ops.deleteGoal },
 };
 
 const routes = {
   'GET /api/state': () => ({
     today: today(),
     name: process.env.USER_NAME || '',
-    tasks: db.tasks, events: db.events, notes: db.notes, stickies: db.stickies,
+    tasks: db.tasks, events: db.events, notes: db.notes, stickies: db.stickies, goals: db.goals, year: db.year, yearDays: db.yearDays,
     projects: db.sync.projects || [],
     day: day(today()),
     coach: db.coach.slice(-30),
@@ -33,12 +34,15 @@ const routes = {
   'GET /api/days': () => Object.keys(db.days).sort().reverse(),
   'GET /api/day': (_, q) => ({ date: q.get('date'), ...day(q.get('date') || today()), markdown: render(q.get('date') || today()) }),
   'POST /api/tasks/complete': b => ops.completeTask(b.id, b.done ?? true),
+  'POST /api/tasks/link': b => ops.linkTask(b.id, b.eventId),
   'POST /api/journal': b => ops.journal(b.text, b.type || 'journal'),
   'POST /api/metric': b => ops.metric(b.key, b.value, b.date),
   'POST /api/reflection': b => ops.reflect(b.kind, b.text, b.date),
   'POST /api/reflection/delete': b => ops.unreflect(b.kind, b.index, b.date),
   'POST /api/day/journal': b => ops.journalText(b.text ?? '', b.date),
   'POST /api/summary': b => ops.summary(b.text, b.date),
+  'POST /api/year': b => ops.setYear(b.year, b.text),
+  'POST /api/year/day': b => ops.setYearDay(b.date, b.text),
   'POST /api/sync': () => ops.sync(),
   'POST /api/coach': b => coach.chat(String(b.message || '')),
 };

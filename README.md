@@ -5,10 +5,17 @@ Tasks, a week calendar, notes, sticky notes and a daily journal on one page, plu
 ## What's in it
 
 **Home**
-- **Tasks** on the left, with P1–P4 priorities, due dates, times and time estimates. Inline editing, and two-way Todoist sync.
-- **Week calendar** in the middle, Sunday to Saturday, with a now-line. Click any slot to add an event. Tasks with a time show on the grid.
-- **Stickies and notes** on the right. Notes open in a focused editor and save as you type.
+- **Tasks** on the left, with P1–P4 priorities, due dates, times and time estimates. Switch between Today, Upcoming, Inbox and Projects. Inline editing, and two-way Todoist sync.
+- **Week calendar** in the middle, Sunday to Saturday, with a now-line. Drag on an empty slot to create a block, or drag a block's bottom edge to resize it. Tasks with a time show on the grid.
+- **Goal reminder** at the top right: your big goal and this week's goal, always in view.
+- **Block details.** Click a block for its location, meeting link, guests, description, reminders and other properties from the calendar feed.
+- **Linked tasks and blocks.** Link tasks to a calendar block, and clicking the block shows them with a live count, such as 1/2 done, so you know whether the work actually happened. It works on Google Calendar events too.
+- **Notes and stickies** under your goals. Notes open in a focused editor and save as you type.
 - **Get ahead.** Finish a task, or clear the day, and you get a compliment plus up to three future tasks you could start now. They're ranked by priority, then by how soon they're due, and only suggested if they fit before your next calendar event. "Start now" blocks the time on your calendar.
+
+**Plan**
+- **Ideal Year:** a statement for the year, your goals drawn across the months, and a sheet-style grid with one line for every day. Enter and the arrow keys move between days.
+- **Goals:** set a start date and a length of 4 to 12 weeks, with a goal for each week. You get a warning above 5 running at once, and a stop at 7.
 
 **Pulse** (the journal)
 - A check-in for mood, energy, focus and sleep. Sliders change colour with the score, or click the number to type it.
